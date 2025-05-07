@@ -6,10 +6,10 @@ import PackageDescription
 let package = Package(
     name: "SwiftImprove",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v10_15),
-        .tvOS(.v13),
-        .watchOS(.v6)
+        .iOS(.v14),
+        .macOS(.v13),
+        .tvOS(.v15),
+        .watchOS(.v9)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
