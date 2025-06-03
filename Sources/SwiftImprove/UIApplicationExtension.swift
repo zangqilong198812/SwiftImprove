@@ -2,17 +2,16 @@
 import UIKit
 
 public extension UIApplication {
-    /// 获取当前最顶层的 ViewController
-    var topViewController: UIViewController? {
-        let keyWindow = UIApplication.shared.connectedScenes
+    var topWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
             .filter { $0.activationState == .foregroundActive }
             .map { $0 as? UIWindowScene }
             .compactMap { $0 }
-            .first?.windows
-            .filter { $0.isKeyWindow }
-            .first
-        
-        return keyWindow?.rootViewController?.topMostViewController
+            .first?.windows.filter { $0.isKeyWindow }.first
+    }
+    /// 获取当前最顶层的 ViewController
+    var topViewController: UIViewController? {
+        return topWindow?.rootViewController?.topMostViewController
     }
 }
 

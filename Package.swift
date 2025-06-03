@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "SwiftImprove",
     platforms: [
-        .iOS(.v14),
+        .iOS(.v17),
         .macOS(.v13),
-        .tvOS(.v15),
+        .tvOS(.v16),
         .watchOS(.v9)
     ],
     products: [

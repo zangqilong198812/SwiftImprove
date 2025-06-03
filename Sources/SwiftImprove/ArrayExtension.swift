@@ -24,4 +24,23 @@ public extension Array {
         var seen = Set<Element>()
         return filter { seen.insert($0).inserted }
     }
-} 
+    
+    func withIndex() -> [(Int, Element)] {
+        return zip(self.indices, self).reduce(into: [(Int, Element)]()) { result, element in
+            result.append(element)
+        }
+    }
+    
+    mutating func moveElement(from n: Int, to m: Int) {
+        // 检查索引是否有效
+        guard indices.contains(n) && indices.contains(m) else {
+            print("Error: 索引超出范围")
+            return
+        }
+        
+        // 移除元素并保存
+        let element = self.remove(at: n)
+        // 插入元素到新位置
+        self.insert(element, at: m)
+    }
+}
