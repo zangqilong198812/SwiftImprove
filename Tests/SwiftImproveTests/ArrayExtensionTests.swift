@@ -27,4 +27,17 @@ final class ArrayExtensionTests: XCTestCase {
         
         XCTAssertEqual(unique, [1, 2, 3, 4, 5])
     }
-} 
+    
+    func testAnyCodable() {
+        struct User: Codable, Hashable {
+            let age: Int
+            let gender: String
+        }
+        
+        let user = User(age: 8, gender: "xxx")
+        XCTAssert(user.age == 8)
+        let archive = AnyCodable(user)
+        let user1 = archive.value as? User
+        XCTAssert(user1 != nil)
+    }
+}
